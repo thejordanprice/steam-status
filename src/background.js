@@ -42,9 +42,9 @@ app.on('ready', function () {
     // control different aspects of the window
     // this is how i hid everything
     var mainWindow = createWindow('main', {
-        useContentSize: true,
-        //width: 500,
-        //height: 125,
+        //useContentSize: true,
+        width: 350,
+        height: 400,
         center: true,
         backgroundColor: '#1D1D1D',
         minimizable: true,
@@ -62,7 +62,7 @@ app.on('ready', function () {
 
     // dev tools if you're not in production flags
     if (env.name === 'development') {
-        mainWindow.openDevTools();
+        //mainWindow.openDevTools();
     }
 });
 
