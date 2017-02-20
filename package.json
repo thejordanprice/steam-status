@@ -2,7 +2,7 @@
   "name": "steam-status",
   "productName": "Steam Status",
   "description": "Steam Status app for all platforms built on electron.",
-  "version": "0.1.3",
+  "version": "1.0.1",
   "author": "Jordan Price",
   "copyright": "Jordan Price © 2017",
   "homepage": "https://jordanprice.ml",
