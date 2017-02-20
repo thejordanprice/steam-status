@@ -11,7 +11,7 @@ Used: Electron, Node.js, HTML/CSS.
 
 As of the latest revision, it is actually showing somewhat useful.
 
-![Screenshot](https://i.imgur.com/sAcThQW.png)
+![Screenshot](https://i.imgur.com/HfPw9Tp.png)
 
 ```
 git clone 
