@@ -48,8 +48,6 @@ The drawback of this design is that `app` folder contains some files which shoul
 - [x] Prototype.
 - [x] Fix production mode.
 - [x] Get a successful build.
-- [ ] Build a minimize button and logic.
-- [ ] Reorganize the columns structure.
+- [x] Display the last check timestamp.
 - [ ] Make some fancy effects in window.
-- [ ] Display a countdown timer.
-- [ ] Display the last check timestamp.
+- [ ] Display a countdown timer instead.

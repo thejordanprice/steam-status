@@ -44,34 +44,40 @@ function getStatistics(callback) {
 // utilizing callbacks it turns it into a var (data).
 // From there we could call specific pieces of the JSON,
 // and inject it into the HTML elements.
-var hit = '';
+
 function displayStatistics() {
   getStatistics(function(error,response,body) {
     var data = JSON.parse(response.body,null,2);
-    // Debugging
-    if(!hit) {
-      console.log(data);
-      hit = true;
-    }
     // Inject data into their proper elements.
     // These will load AFTER the JSON is loaded.
 
     // Individual steam services.
-    document.getElementById('percent-online').innerHTML = data.services.cms.title;
-    document.getElementById('player-steam').innerHTML = data.services.online.title;
+    document.getElementById('percent-online').innerHTML = data.services.cms.title.toString();
+    document.getElementById('player-steam').innerHTML = data.services.online.title.toString();
 
     // Individual games and their services.
-    document.getElementById('status-csgo').innerHTML = capitalize(data.services.csgo.status);
-    document.getElementById('status-tf2').innerHTML = capitalize(data.services.tf2.status);
-    document.getElementById('status-dota2').innerHTML = capitalize(data.services.dota2.status);
+    document.getElementById('status-csgo').innerHTML = capitalize(data.services.csgo.status.toString());
+    document.getElementById('status-tf2').innerHTML = capitalize(data.services.tf2.status.toString());
+    document.getElementById('status-dota2').innerHTML = capitalize(data.services.dota2.status.toString());
   });
-}
+};
+
+/**
+ * 
+ * Yeah i know this code is fucked, I'll work it out soon enough :D
+ * 
+ * 
+ */
 
 // My simple request loop for displaying the statistics,
-// it runs every 60 seconds currently.
+// it runs every 15 seconds currently
+var interval = 30000;
+
 var requestLoop = setInterval(function(){
   displayStatistics();
-}, 60000);
+  var timestring = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+  document.getElementById("countdown").innerHTML = "Last: " + timestring;
+}, interval);
 
 // Run the request loop.
 requestLoop;
@@ -79,5 +85,7 @@ requestLoop;
 // These will happen on LOAD.
 // Return the data that we got from our functions in the view.
 document.addEventListener('DOMContentLoaded', function () {
-    displayStatistics();
+  displayStatistics();
+  var timestring = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+  document.getElementById("countdown").innerHTML = "Last: " + timestring;
 });
