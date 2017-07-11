@@ -6,6 +6,7 @@ html, body {
   color: rgb(151,151,151);
   background: url('./steam-logo.png') rgb(29,29,29);
   overflow: hidden;
+  -webkit-user-select: none;
 }
 
 :not(input):not(textarea),
@@ -38,14 +39,18 @@ a {
   color: rgb(255,255,255);
 }
 
+.title {
+  font-size: medium;
+}
+
 #small {
   text-align: center;
   font-size: small;
 }
 
 #wm-buttons {
-  margin-top: 6px;
-  margin-right: 5px;
+  margin-top: 5px;
+  margin-right: 8px;
   position:absolute;
   padding: 4px;
   font-weight: bolder;

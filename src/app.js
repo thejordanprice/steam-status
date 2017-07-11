@@ -4,6 +4,8 @@ import { remote } from 'electron';
 import jetpack from 'fs-jetpack';
 import env from './env';
 import request from 'request';
+import { capitalize } from './utils/utils.js';
+
 
 // Electron init.
 var app = remote.app;
@@ -13,13 +15,6 @@ var appDir = jetpack.cwd(app.getAppPath());
 // we're gonna need to make some GET request.
 var request = require('request');
 
-// The JSON that gets parsed its not expected
-// to be used on frontend without controller.
-// Lowercase true's and good's. This is a bandaid.
-function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-}
-
 // This will grab the JSON from the remote server,
 // options like the user-agent can be set here. It
 // is then turned to callback for future use.
@@ -27,6 +22,7 @@ function getStatistics(callback) {
   var options = {
     // The person that made steamstat.us is a fucking god.
     // I wish him well and he made this project a piece of cake.
+    // url: 'https://api.myjson.com/bins/te1ur',
     url: 'https://crowbar.steamstat.us/Barney',
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36'
@@ -55,28 +51,35 @@ function displayStatistics() {
     document.getElementById('percent-online').innerHTML = data.services.cms.title.toString();
     document.getElementById('player-steam').innerHTML = data.services.online.title.toString();
 
+    if(data.online > 90) {
+      document.getElementById('percent-online').style.color = 'GREEN';
+    };
+
+    if(data.online < 89 && data.online > 50) {
+      document.getElementById('percent-online').style.color = 'YELLOW';
+    };
+
+    if(data.online < 49) {
+      document.getElementById('percent-online').style.color = 'RED';
+      document.getElementById('percent-online').innerHTML = 'WTF GABE';
+    };
+
     // Individual games and their services.
-    document.getElementById('status-csgo').innerHTML = capitalize(data.services.csgo.status.toString());
-    document.getElementById('status-tf2').innerHTML = capitalize(data.services.tf2.status.toString());
-    document.getElementById('status-dota2').innerHTML = capitalize(data.services.dota2.status.toString());
+    document.getElementById('status-csgo').innerHTML = capitalize(data.services.csgo.title.toString());
+    document.getElementById('status-tf2').innerHTML = capitalize(data.services.tf2.title.toString());
+    document.getElementById('status-dota2').innerHTML = capitalize(data.services.dota2.title.toString());
+
+    var timestring = (new Date().getHours() % 12 || 12) + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
+    document.getElementById("countdown").innerHTML = "Last: " + timestring;
   });
 };
 
-/**
- * 
- * Yeah i know this code is fucked, I'll work it out soon enough :D
- * 
- * 
- */
-
 // My simple request loop for displaying the statistics,
-// it runs every 15 seconds currently
+// it runs every 30 seconds currently
 var interval = 30000;
 
 var requestLoop = setInterval(function(){
   displayStatistics();
-  var timestring = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
-  document.getElementById("countdown").innerHTML = "Last: " + timestring;
 }, interval);
 
 // Run the request loop.
@@ -86,6 +89,4 @@ requestLoop;
 // Return the data that we got from our functions in the view.
 document.addEventListener('DOMContentLoaded', function () {
   displayStatistics();
-  var timestring = new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
-  document.getElementById("countdown").innerHTML = "Last: " + timestring;
 });

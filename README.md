@@ -11,7 +11,7 @@ Used: Electron, Node.js, HTML/CSS.
 
 As of the latest revision, it is actually showing somewhat useful.
 
-![Screenshot](https://i.imgur.com/HfPw9Tp.png)
+![Screenshot](https://i.imgur.com/0MDPpOF.png)
 
 ```
 git clone 
@@ -49,5 +49,6 @@ The drawback of this design is that `app` folder contains some files which shoul
 - [x] Fix production mode.
 - [x] Get a successful build.
 - [x] Display the last check timestamp.
-- [ ] Make some fancy effects in window.
-- [ ] Display a countdown timer instead.
+- [x] Make some fancy effects in window.
+- [] Timestamp formatting.
+- [] Clean up code and remove redundancies.

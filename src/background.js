@@ -47,10 +47,12 @@ app.on('ready', function () {
         height: 400,
         center: true,
         backgroundColor: '#1D1D1D',
+        icon: __dirname + '/images/icon.png',
         minimizable: true,
         maximizable: false,
         resizable: false,
-        frame: false
+        frame: false,
+        show: false
     });
 
     // load the html file that is our app
@@ -59,6 +61,10 @@ app.on('ready', function () {
         protocol: 'file:',
         slashes: true
     }));
+
+    mainWindow.once('ready-to-show', () => {
+        mainWindow.show();
+    });
 
     // dev tools if you're not in production flags
     if (env.name === 'development') {
