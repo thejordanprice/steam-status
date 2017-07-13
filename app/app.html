@@ -1,49 +1,47 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset='utf-8'>
   <title>Steam Status</title>
-  <script src="stylesheets/jquery-3.1.1.slim.min.js"></script>
-  <link href="stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="stylesheets/main.css" rel="stylesheet" type="text/css">
-  <script src="helpers/context_menu.js"></script>
-  <script src="helpers/external_links.js"></script>
-  <script src="app.js"></script>
+  <link href='stylesheets/main.css' rel='stylesheet' type='text/css'>
+  <script src='helpers/context_menu.js'></script>
+  <script src='helpers/external_links.js'></script>
+  <script src='app.js'></script>
 </head>
 <body>
   <!-- my interesting take on making window manager buttons -->
-  <span id="wm-dragbox">Steam Status</span>
-  <div class="container" id="wm-buttons">
-    <a btn href="#" onclick="window.top.close(); return false">X</a>
+  <span id='wm-dragbox'>Steam Status</span>
+  <div class='container' id='wm-buttons'>
+    <a btn href='#' onclick='window.top.close(); return false'>X</a>
   </div>
   <!-- the divs where magic reloads data -->
-  <div class='container'><center>
+  <div class='container' id='app'><center>
     <h2 id='percent-online'></h2>
-    <div class='.col-xs-6'>
+    <div class='group'>
       <div class='title'>
         Steam
-        <p class="subtitle" id="player-steam"></p>
+        <p class='subtitle' id='player-steam'></p>
       </div>
       <div class='title'>
         CS:GO
-        <p class="subtitle" id="status-csgo"></p>
+        <p class='subtitle' id='status-csgo'></p>
       </div>
     </div>
-    <div class='.col-xs-6'>
+    <div class='group'>
       <div class='title'>
         DOTA 2
-        <p class="subtitle" id="status-dota2"></p>
+        <p class='subtitle' id='status-dota2'></p>
       </div>
       <div class='title'>
-        TF2
-        <p class="subtitle" id="status-tf2"></p>
+          TF2
+          <p class='subtitle' id='status-tf2'></p>
+        </div>
       </div>
-    </div>
-    <div id="countdown"></div>
+      <div class='container'>
+        <div id='lastfetch'></div>
+        <div id='countdown'></div>
+      </div>
     </center>
   </div>
-  <!-- the dumb shit at the bottom -->
-  <script src="stylesheets/jquery-3.1.1.slim.min.js"></script>
-  <script src="stylesheets/bootstrap.min.js"></script>
 </body>
 </html>

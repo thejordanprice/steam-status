@@ -4,8 +4,7 @@ import { remote } from 'electron';
 import jetpack from 'fs-jetpack';
 import env from './env';
 import request from 'request';
-import { capitalize } from './utils/utils.js';
-
+import { capitalize, timestring, funcrap } from './utils/utils.js';
 
 // Electron init.
 var app = remote.app;
@@ -22,7 +21,7 @@ function getStatistics(callback) {
   var options = {
     // The person that made steamstat.us is a fucking god.
     // I wish him well and he made this project a piece of cake.
-    // url: 'https://api.myjson.com/bins/te1ur',
+    //url: 'https://api.myjson.com/bins/te1ur',
     url: 'https://crowbar.steamstat.us/Barney',
     headers: {
       'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.85 Safari/537.36'
@@ -51,28 +50,32 @@ function displayStatistics() {
     document.getElementById('percent-online').innerHTML = data.services.cms.title.toString();
     document.getElementById('player-steam').innerHTML = data.services.online.title.toString();
 
-    if(data.online > 90) {
-      document.getElementById('percent-online').style.color = 'GREEN';
-    };
-
-    if(data.online < 89 && data.online > 50) {
-      document.getElementById('percent-online').style.color = 'YELLOW';
-    };
-
-    if(data.online < 49) {
-      document.getElementById('percent-online').style.color = 'RED';
-      document.getElementById('percent-online').innerHTML = 'WTF GABE';
-    };
+    // Do different crap with the gui.
+    funcrap(data);
 
     // Individual games and their services.
     document.getElementById('status-csgo').innerHTML = capitalize(data.services.csgo.title.toString());
     document.getElementById('status-tf2').innerHTML = capitalize(data.services.tf2.title.toString());
     document.getElementById('status-dota2').innerHTML = capitalize(data.services.dota2.title.toString());
 
-    var timestring = (new Date().getHours() % 12 || 12) + ":" + new Date().getMinutes() + ":" + new Date().getSeconds();
-    document.getElementById("countdown").innerHTML = "Last: " + timestring;
+    // The last fetch timestamp then display.
+    var time = timestring();
+    document.getElementById('lastfetch').innerHTML = 'Last: ' + time;
+    counter = 30;
   });
 };
+
+// Countdown till next fetch.
+var counter = 30;
+var countdown = setInterval(function() {
+  counter--;
+  if(counter < 0) {
+    clearInterval(countdown);
+  } else {
+    document.getElementById('countdown').innerHTML = 'Next: ' + counter + ' seconds.';
+  };
+}, 1000);
+
 
 // My simple request loop for displaying the statistics,
 // it runs every 30 seconds currently

@@ -50,5 +50,6 @@ The drawback of this design is that `app` folder contains some files which shoul
 - [x] Get a successful build.
 - [x] Display the last check timestamp.
 - [x] Make some fancy effects in window.
-- [ ] Timestamp formatting.
+- [x] Timestamp formatting.
+- [ ] Add more random lulz crap.
 - [ ] Clean up code and remove redundancies.

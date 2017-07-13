@@ -68,7 +68,7 @@ app.on('ready', function () {
 
     // dev tools if you're not in production flags
     if (env.name === 'development') {
-        //mainWindow.openDevTools();
+        // mainWindow.openDevTools();
     }
 });
 
