@@ -52,4 +52,5 @@ The drawback of this design is that `app` folder contains some files which shoul
 - [x] Make some fancy effects in window.
 - [x] Timestamp formatting.
 - [ ] Add more random lulz crap.
+- [ ] Auto updater, like pull from git.
 - [ ] Clean up code and remove redundancies.
