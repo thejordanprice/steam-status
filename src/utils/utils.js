@@ -6,7 +6,7 @@ export var capitalize = function (string) {
 // timestring is handy for throwing the current 12 hour format time.
 export var timestring = function () {
   var time = new Date();
-  time = time.toLocaleString('en-US', { hour: 'numeric', minute:'numeric', hour12: true });
+  time = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
   return time;
 }
 
