@@ -1,6 +1,6 @@
 ## steam-status
 
-[![license](https://img.shields.io/npm/l/express.svg)]() [![passing](https://img.shields.io/badge/build-passing-green.svg?style=flat)]() [![quality](https://img.shields.io/badge/quality-inbetween-green.svg?style=flat)]()
+[![license](https://img.shields.io/npm/l/express.svg)]() [![passing](https://img.shields.io/badge/build-passing-green.svg?style=flat)]() [![quality](https://img.shields.io/badge/quality-not-bad-green.svg?style=flat)]()
 
 ## Download
 
