@@ -51,6 +51,7 @@ The drawback of this design is that `app` folder contains some files which shoul
 - [x] Display the last check timestamp.
 - [x] Make some fancy effects in window.
 - [x] Timestamp formatting.
+- [ ] Try to do custom jackyll themes this repo's www.
 - [ ] Put analytics in the releases with custom useragents with version.
 - [ ] Add more random lulz crap.
 - [ ] Auto updater, like pull from git.
