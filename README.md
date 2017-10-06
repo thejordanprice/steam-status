@@ -52,3 +52,7 @@ The build process compiles all stuff from the `src` folder and puts it into the 
 Treat `src` and `app` folders like two halves of one bigger thing.
 
 The drawback of this design is that `app` folder contains some files which should be git-ignored and some which shouldn't (see `.gitignore` file). But thanks to this two-folders split development builds are much (much!) faster.
+
+### License
+
+MIT
