@@ -1,6 +1,6 @@
 ## steam-status
 
-# DEAD
+### DEAD
 
     I will no longer be providing updates to this software.
     If you wish to view the same information in the proper manner visit the link below.
