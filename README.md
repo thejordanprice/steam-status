@@ -4,10 +4,11 @@
 
     I will no longer be providing updates to this software.
     If you wish to view the same information in the proper manner visit the link below.
-*Note: There isn't much wrong with this code, just inefficent on RAM for the simple things that are happening.
-If you like it, feel free to continue using it; there should be no problems in the future.*
 
 ### [steamstat.us](https://steamstat.us)
+
+*Note: There isn't much wrong with this code, just inefficent on RAM for the simple things that are happening.
+If you like it, feel free to continue using it; there should be no problems in the future.*
 
 [![license](https://img.shields.io/npm/l/express.svg)]() [![passing](https://img.shields.io/badge/build-passing-green.svg?style=flat)]() [![quality](https://img.shields.io/badge/quality-okay-green.svg?style=flat)]()
 
