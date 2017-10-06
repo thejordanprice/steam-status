@@ -52,17 +52,3 @@ The build process compiles all stuff from the `src` folder and puts it into the 
 Treat `src` and `app` folders like two halves of one bigger thing.
 
 The drawback of this design is that `app` folder contains some files which should be git-ignored and some which shouldn't (see `.gitignore` file). But thanks to this two-folders split development builds are much (much!) faster.
-
-### To-Do
-
-- [x] Prototype.
-- [x] Fix production mode.
-- [x] Get a successful build.
-- [x] Display the last check timestamp.
-- [x] Make some fancy effects in window.
-- [x] Timestamp formatting.
-- [ ] Try to do custom jackyll themes this repo's www.
-- [ ] Put analytics in the releases with custom useragents with version.
-- [ ] Add more random lulz crap.
-- [ ] Auto updater, like pull from git.
-- [ ] Clean up code and remove redundancies.
